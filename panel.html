@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Panel · Playzone Barber</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#eeebe5" />
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="Playzone Panel" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800;900&family=Playfair+Display:ital,wght@1,400;1,500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/panel.css" />
+</head>
+<body class="panel-body">
+  <!-- Entrar -->
+  <main class="pn-login" id="login" hidden>
+    <p class="pn-brand">PLAYZONE BARBER · PANEL</p>
+    <h1 class="title title--left"><em>Hola,</em><strong>Entrá</strong></h1>
+    <form id="loginForm" autocomplete="on">
+      <label class="field"><span>¿Quién sos?</span>
+        <select id="lgBarbero" required></select>
+      </label>
+      <label class="field"><span>Clave</span>
+        <input type="password" id="lgClave" autocomplete="current-password" inputmode="numeric" required />
+      </label>
+      <div class="bk-alert" id="lgError" hidden></div>
+      <button class="btn btn--dark btn--block" type="submit" id="lgBtn">Entrar</button>
+      <p class="bk-note" id="lgDemo" hidden>Demo: cualquier clave sirve.</p>
+    </form>
+  </main>
+
+  <!-- Panel -->
+  <div class="pn" id="panel" hidden>
+    <header class="pn-head">
+      <div class="pn-top">
+        <span class="pn-brand">PLAYZONE BARBER · PANEL</span>
+        <span class="pn-brand" id="pnLocal"></span>
+      </div>
+      <h1 class="title title--left pn-hola"><em>Hola,</em><strong id="pnNombre"></strong></h1>
+      <div class="pn-barberos" id="pnBarberos" hidden></div>
+      <div class="pn-stats">
+        <div class="pn-stat"><span>Turnos</span><b id="stTurnos">–</b></div>
+        <div class="pn-stat"><span>Señas cobradas</span><b id="stSenas">–</b></div>
+        <div class="pn-stat"><span>Resta cobrar</span><b id="stResta">–</b></div>
+      </div>
+      <div class="pn-tabs" role="tablist">
+        <button role="tab" data-tab="dia" class="is-on">Hoy</button>
+        <button role="tab" data-tab="semana">Semana</button>
+        <button role="tab" data-tab="clientes">Clientes</button>
+        <button role="tab" data-tab="fotos">Fotos</button>
+      </div>
+    </header>
+
+    <section class="pn-body" id="pnBody" aria-live="polite"></section>
+
+    <footer class="pn-foot">
+      <button class="btn btn--dark" id="btnAgregar">＋ Agregar turno</button>
+      <button class="btn btn--outline" id="btnBloquear">Bloquear</button>
+    </footer>
+  </div>
+
+  <!-- Hoja para agregar turno / bloquear -->
+  <div class="sheet" id="pnSheet" role="dialog" aria-modal="true" hidden>
+    <div class="sheet__panel pn-sheet">
+      <div class="sheet__head">
+        <span class="sheet__brand" id="shTitulo"></span>
+        <button class="icon-btn" data-close aria-label="Cerrar">✕</button>
+      </div>
+      <form class="sheet__body" id="shForm"></form>
+      <div class="sheet__foot"><button class="btn btn--dark btn--block" id="shOk" form="shForm" type="submit">Guardar</button></div>
+    </div>
+  </div>
+
+  <div class="pn-toast" id="toast" role="status" hidden></div>
+
+  <script src="js/config.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/backend.js"></script>
+  <script src="js/fotos.js"></script>
+  <script src="js/panel.js"></script>
+</body>
+</html>

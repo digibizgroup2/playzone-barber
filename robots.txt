@@ -1,0 +1,3 @@
+# PRELANZAMIENTO: la web todavía no aparece en Google
+User-agent: *
+Disallow: /
